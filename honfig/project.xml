@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <!-- the version of maven's project object model -->
+  <pomVersion>3</pomVersion>
+  
+  <!-- a unique name for this project -->
+  <id>honfig</id>
+  
+  <!-- a short but descriptive name for the project -->
+  <name>honfig</name>
+  
+  <!-- The version of the project under development, e.g.
+       1.1, 1.2, 2.0-SNAPSHOT -->
+  <currentVersion>1.0</currentVersion>
+  
+  <!-- details about the organization that 'owns' the project -->
+  <organization>
+    <name>org.honfig</name>
+    <url>http://www.homo-developerus.org</url>
+    <logo>http://www.homo-developerus.org/logo.png</logo>
+  </organization>
+  
+  <!-- the year the project started -->
+  <inceptionYear>2004</inceptionYear>
+  <package>org.honfig</package>
+  <logo>http://www.homo-developerus.org/honfig/logo.png</logo>
+  <description>
+    Configuration manager for J2EE application
+  </description>
+  <!-- a short description of what the project does -->
+  <shortDescription>
+    Config manager
+  </shortDescription>
+
+  <!-- the project home page -->
+  <url>http://www.homo-developerus.org/honfig/</url>
+  <issueTrackingUrl>http://www.homo-developerus.org</issueTrackingUrl>
+  <siteAddress>www.homo-developerus.org/</siteAddress>
+  <siteDirectory>honfig</siteDirectory>
+  <distributionDirectory>/www/homo-developerus/builds/</distributionDirectory>
+
+  <!-- the version control repository and http url for online access
+       the connection element has the form:
+       scm:<system>:<system specific connection string> -->
+  <repository>
+    <connection>scm:cvs:pserver:anoncvs@cvs.apache.org:/home/cvspublic:maven/src/plugins-build/examples</connection>
+    <url>http://cvs.apache.org/viewcvs/maven/src/plugins-build/examples/</url>
+  </repository>
+
+  <!-- any mailing lists for the project -->
+  <mailingLists/>
+  
+  <!-- who the developers are for the project -->
+  <developers/>
+
+  <!-- jar files the project is dependent on -->
+  <dependencies/>
+  
+  <!-- build information for the project -->
+  <build>
+    <nagEmailAddress>heveloper@homo-developerus.org</nagEmailAddress>
+    <sourceDirectory>src/java</sourceDirectory>
+    <unitTestSourceDirectory>test/java</unitTestSourceDirectory>
+
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+      <excludes>
+        <exclude>**/NaughtyTest.java</exclude>
+      </excludes>
+    </unitTest>
+
+    <resources>
+      <resource>
+        <directory>src/conf</directory>
+        <includes>
+          <include>*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+
+</project>
+
