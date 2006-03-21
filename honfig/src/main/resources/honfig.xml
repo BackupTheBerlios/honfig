@@ -1,0 +1,45 @@
+<!DOCTYPE honfig [
+<!ELEMENT honfig (configuration)*>
+<!ELEMENT provider (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT configuration (path|algorithm|provider|description)*>
+<!ATTLIST configuration
+    name CDATA #REQUIRED>
+<!ELEMENT path (#PCDATA)>
+<!ELEMENT algorithm (#PCDATA)>
+]>
+<honfig>
+
+    <!--default configuration-->
+    <configuration name="application" >
+
+        <!--path to the configuration file-->
+        <path>/</path>
+
+        <!-- can be IP or hostname based -->
+        <algorithm>org.honfig.impl.IPIdentityAlgorithm</algorithm>
+
+        <provider>org.honfig.input.PropertiesFileConfigurationProvider</provider>
+
+        <!-- configuration description-->
+        <description>Application Configuration</description>
+
+    </configuration>
+
+    <!--default configuration-->
+    <configuration name="config2" >
+
+        <!--path to the configuration file-->
+        <path>/</path>
+
+        <!-- can be IP or hostname based -->
+        <algorithm>org.honfig.impl.HostNameIdentityAlgorithm</algorithm>
+
+        <provider>org.honfig.input.PropertiesFileConfigurationProvider</provider>
+
+        <!-- configuration description-->
+        <description>Configuration named Config2</description>
+
+    </configuration>
+
+</honfig>
