@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *      SampleMetaConfig is used </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: SampleMetaConfig.java,v 1.1 2006/03/22 12:06:25 conradh Exp $
+ * @version $Id: SampleMetaConfig.java,v 1.2 2006/03/22 14:46:37 conradh Exp $
  *          Date: 2004-12-28
  *          <p/>
  *          Time: 23:38:11
@@ -36,7 +36,7 @@ public class SampleMetaConfig implements MetaConfig {
 
     public SampleMetaConfig() {
         this.values = new HashMap<String, Object>();
-        this.name = Constants.DEFAULT_CONFIG_NAME;
+        this.name = Constants.SAMPLE_CONFIG_NAME;
         this.provider = new PropertiesFileConfigurationProvider();
         this.identityAlgorithm = new IPIdentityAlgorithm();
         setDescription( "The most basic configuration" );

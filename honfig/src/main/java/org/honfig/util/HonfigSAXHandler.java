@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  * <p>Title: </p>
  * <p>Description: This class is responsible for parsing honfig.xml file. Parsed infromations about available/define
  *    configuration is stored in a map. This map contains MetaConfig objects with adequate configurations.
- *    This class does not onElement any particular configurations, it manages informations about available
+ *    This class does not onStartElement any particular configurations, it manages informations about available
  *    configurations. Its a meta config class.
  * </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: HonfigSAXHandler.java,v 1.2 2006/03/22 13:17:20 conradh Exp $
+ * @version $Id: HonfigSAXHandler.java,v 1.3 2006/03/22 14:47:31 conradh Exp $
  *          Date: 2004-12-28
  *          Time: 22:54:43
  */
@@ -74,7 +74,9 @@ public class HonfigSAXHandler extends DefaultHandler {
     public void startElement(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
         log.finest("qName = " + qName);
         this.currentElement = elist.get( qName);
-        this.currentElement.onElement(this, attributes);
+        if (this.currentElement != null ){
+            this.currentElement.onStartElement(this, attributes);
+        }
     }
 
     public void characters(final char[] ch, final int start, final int length) throws SAXException {
@@ -83,37 +85,53 @@ public class HonfigSAXHandler extends DefaultHandler {
         }
     }
 
+    public void endElement( final String uri , final String localName , final String qName ) throws SAXException {
+        log.finest("qName = " + qName);
+        this.currentElement = elist.get( qName);
+        if (this.currentElement != null ){
+            this.currentElement.onEndElement(this);
+        }
+    }
+
     public Map<String, MetaConfig>getMetaConfigs() {
         return this.metaConfigs;
     }
 
-    public String getDefaultConfiguration() {
-        return defaultConfiguration;
-    }
-
 
     private static class ElementHandler {
-        public void onElement(final HonfigSAXHandler saxHandler, final Attributes attributes) {}
-        public void onText(final HonfigSAXHandler saxHandler, final String str) {}
+        public void onStartElement(final HonfigSAXHandler honfigHandler, final Attributes attributes) {}
+        public void onText(final HonfigSAXHandler honfigHandler, final String str) {}
+        public void onEndElement(final HonfigSAXHandler honfigHandler) {}
     }
 
     private static final class HonfigElementHandler extends ElementHandler {
-        public void onElement(final HonfigSAXHandler saxHandler, final Attributes attributes) {
-            saxHandler.metaConfigs = new HashMap<String, MetaConfig>(1);
+        public void onStartElement(final HonfigSAXHandler honfigHandler, final Attributes attributes) {
+            honfigHandler.metaConfigs = new HashMap<String, MetaConfig>(1);
+        }
+
+        public void onEndElement( final HonfigSAXHandler honfigHandler ) {
+            if ( honfigHandler.defaultConfiguration != null ){
+                MetaConfig mc = honfigHandler.metaConfigs.get( honfigHandler.defaultConfiguration );
+                if ( mc != null ){
+                    honfigHandler.metaConfigs.put( Constants.DEFAULT_CONFIG , mc);
+                    log.info( "Default configuration set to: " + honfigHandler.defaultConfiguration );
+                }
+            }
         }
     }
     private static final class DefaultConfigurationElementHandler extends ElementHandler {
-        public void onText(final HonfigSAXHandler saxHandler, final String str) {
-            saxHandler.defaultConfiguration = str;
+        public void onText(final HonfigSAXHandler honfigHandler, final String str) {
+            honfigHandler.defaultConfiguration = str.trim();
+            log.finer( "Default configuration will be :" + honfigHandler.defaultConfiguration );
         }
     }
 
     private static final class ConfigurationElementHandler extends ElementHandler {
-        public void onElement(final HonfigSAXHandler saxHandler, final Attributes attributes) {
+        public void onStartElement(final HonfigSAXHandler honfigHandler, final Attributes attributes) {
             final String name = attributes.getValue(XA_NAME);
-            saxHandler.currentMetaConfig = new SampleMetaConfig();
-            saxHandler.currentMetaConfig.setName(name);
-            saxHandler.metaConfigs.put(name, saxHandler.currentMetaConfig);
+            honfigHandler.currentMetaConfig = new SampleMetaConfig();
+            honfigHandler.currentMetaConfig.setName(name);
+            honfigHandler.metaConfigs.put(name, honfigHandler.currentMetaConfig);
         }
     }
 
@@ -121,8 +139,8 @@ public class HonfigSAXHandler extends DefaultHandler {
         private String name;
         public ConfigurationChildrenElementHandler( final String name ) { this.name = name; }
 
-        public void onText(final HonfigSAXHandler saxHandler, final String str) {
-            saxHandler.currentMetaConfig.set( this.name , str);
+        public void onText(final HonfigSAXHandler honfigHandler, final String str) {
+            honfigHandler.currentMetaConfig.set( this.name , str);
         }
     }
 
