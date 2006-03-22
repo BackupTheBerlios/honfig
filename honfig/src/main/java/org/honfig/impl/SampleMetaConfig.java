@@ -1,11 +1,12 @@
 package org.honfig.impl;
 
-import org.honfig.IdentityAlgorithm;
-import org.honfig.MetaConfig;
+import org.honfig.spi.ia.IdentityAlgorithm;
+import org.honfig.spi.ia.IPIdentityAlgorithm;
+import org.honfig.spi.MetaConfig;
 import org.honfig.ex.CannotSetIdentityAlgorithmException;
 import org.honfig.ex.CannotSetProviderException;
-import org.honfig.input.ConfigurationProvider;
-import org.honfig.input.PropertiesFileConfigurationProvider;
+import org.honfig.spi.provider.ConfigurationProvider;
+import org.honfig.spi.provider.PropertiesFileConfigurationProvider;
 import org.honfig.util.Constants;
 import org.honfig.util.HonfigSAXHandler;
 
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  *      SampleMetaConfig is used </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: SampleMetaConfig.java,v 1.2 2006/03/22 14:46:37 conradh Exp $
+ * @version $Id: SampleMetaConfig.java,v 1.3 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2004-12-28
  *          <p/>
  *          Time: 23:38:11

@@ -1,6 +1,7 @@
 package org.honfig;
 
 import org.honfig.util.Constants;
+import org.honfig.spi.ConfigurationManager;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
  * <p>Description: </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: ConfigurationFactory.java,v 1.2 2006/03/22 16:16:14 conradh Exp $
+ * @version $Id: ConfigurationFactory.java,v 1.3 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2006-03-22
  *          Time: 10:04:05
  */

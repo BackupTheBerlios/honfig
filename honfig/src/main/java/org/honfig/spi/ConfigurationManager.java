@@ -1,10 +1,11 @@
-package org.honfig;
+package org.honfig.spi;
 
 import org.honfig.ex.NoSuchConfigurationException;
 import org.honfig.ex.DefaultConfigurationNotFoundException;
-import org.honfig.input.ConfigurationProvider;
+import org.honfig.spi.provider.ConfigurationProvider;
 import org.honfig.util.Constants;
 import org.honfig.util.MetaConfigurationProvider;
+import org.honfig.Configuration;
 
 import java.util.Map;
 import java.util.logging.Logger;
@@ -14,14 +15,14 @@ import java.util.logging.Logger;
  * <p>Description:  </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: ConfigurationManager.java,v 1.2 2006/03/22 14:48:10 conradh Exp $
+ * @version $Id: ConfigurationManager.java,v 1.1 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2004-12-28
  *          Time: 21:56:56
  */
 public class ConfigurationManager {
     private static final Logger log = Logger.getLogger(ConfigurationManager.class.getName());
 
-    private Map<String, MetaConfig> metaConfigs;    
+    private Map<String, MetaConfig> metaConfigs;
 
     public ConfigurationManager() {
         final MetaConfigurationProvider mcp = new MetaConfigurationProvider();

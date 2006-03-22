@@ -1,9 +1,10 @@
 /*
  * Copyright (c) 2005 Your Corporation. All Rights Reserved.
  */
-package org.honfig;
+package org.honfig.spi;
 
-import org.honfig.input.ConfigurationProvider;
+import org.honfig.spi.provider.ConfigurationProvider;
+import org.honfig.spi.ia.IdentityAlgorithm;
 
 /**
  * <p>Title: </p>
@@ -16,8 +17,8 @@ import org.honfig.input.ConfigurationProvider;
  *      </ul>
  * </p>
  *
- * @author <a href="hocon@homo-developerus.org">HoCon</a>
- * @version $Id: MetaConfig.java,v 1.1 2006/03/21 20:32:54 conradh Exp $
+ * @author <a href="conradh@users.berlios.de">Conradh</a>
+ * @version $Id: MetaConfig.java,v 1.1 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2005-01-03
  *          Time: 23:09:54
  */

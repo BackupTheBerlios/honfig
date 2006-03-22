@@ -1,6 +1,6 @@
 package org.honfig.util;
 
-import org.honfig.MetaConfig;
+import org.honfig.spi.MetaConfig;
 import org.honfig.impl.SampleMetaConfig;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: HonfigSAXHandler.java,v 1.3 2006/03/22 14:47:31 conradh Exp $
+ * @version $Id: HonfigSAXHandler.java,v 1.4 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2004-12-28
  *          Time: 22:54:43
  */

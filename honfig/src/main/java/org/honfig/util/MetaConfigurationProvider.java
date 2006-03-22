@@ -3,7 +3,7 @@
  */
 package org.honfig.util;
 
-import org.honfig.MetaConfig;
+import org.honfig.spi.MetaConfig;
 import org.honfig.impl.SampleMetaConfig;
 import org.xml.sax.SAXException;
 
@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  *    The default metaconfig is loaded also. This metaconfig is always available. </p>
  *
  * @author <a href="conradh@users.berlios.de">Conradh</a>
- * @version $Id: MetaConfigurationProvider.java,v 1.2 2006/03/22 14:47:31 conradh Exp $
+ * @version $Id: MetaConfigurationProvider.java,v 1.3 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2005-01-14
  *          Time: 18:09:49
  */

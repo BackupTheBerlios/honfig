@@ -1,6 +1,6 @@
-package org.honfig.impl;
+package org.honfig.spi.ia;
 
-import org.honfig.IdentityAlgorithm;
+import org.honfig.spi.ia.IdentityAlgorithm;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -9,8 +9,8 @@ import java.net.UnknownHostException;
  * <p>Title: </p>
  * <p>Description: </p>
  *
- * @author <a href="hocon@homo-developerus.org">HoCon</a>
- * @version $Id: IPIdentityAlgorithm.java,v 1.1 2006/03/21 20:32:53 conradh Exp $
+ * @author <a href="conradh@users.berlios.de">Conradh</a>
+ * @version $Id: IPIdentityAlgorithm.java,v 1.1 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2004-12-29
  *          Time: 01:24:29
  */

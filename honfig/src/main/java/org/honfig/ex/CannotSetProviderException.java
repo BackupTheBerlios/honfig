@@ -4,8 +4,8 @@ package org.honfig.ex;
  * <p>Title: </p>
  * <p>Description: </p>
  *
- * @author <a href="hocon@homo-developerus.org">HoCon</a>
- * @version $Id: CannotSetProviderException.java,v 1.1 2006/03/21 20:32:53 conradh Exp $
+ * @author <a href="conradh@users.berlios.de">Conradh</a>
+ * @version $Id: CannotSetProviderException.java,v 1.2 2006/03/22 19:30:52 conradh Exp $
  *          Date: 2005-11-08
  *          Time: 22:01:39
  */
