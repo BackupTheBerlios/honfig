@@ -7,8 +7,8 @@ package org.honfig.ex;
  * <p>Title: </p>
  * <p>Description: </p>
  *
- * @author <a href="hocon@homo-developerus.org">HoCon</a>
- * @version $Id: DefaultConfigurationNotFoundException.java,v 1.1 2006/03/22 14:43:44 conradh Exp $
+ * @author <a href="conradh@users.berlios.de">Conradh</a>
+ * @version $Id: DefaultConfigurationNotFoundException.java,v 1.2 2006/03/22 14:44:21 conradh Exp $
  *          Date: 2005-11-08
  *          Time: 22:01:39
  */
