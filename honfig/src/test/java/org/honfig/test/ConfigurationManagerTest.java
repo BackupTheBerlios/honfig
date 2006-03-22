@@ -22,6 +22,9 @@ public class ConfigurationManagerTest extends TestCase {
             final Configuration conf2 = ConfigurationFactory.getConfiguration();
             assertEquals( "Override prop error", conf2.get("foo"), "barbar" );
             assertEquals( "new prop error", conf2.get("alaala"), "alaala" );
+            final Configuration conf3 = ConfigurationFactory.getConfiguration( "config3");
+            assertEquals( "Override prop error", conf3.get("foo"), "BARBAR" );
+            assertEquals( "new prop error", conf3.get("bar"), "baz" );
         }catch(Exception e){
             e.printStackTrace();
         }

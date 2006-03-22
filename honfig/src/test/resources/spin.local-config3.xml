@@ -1,0 +1,11 @@
+<!DOCTYPE properties [
+<!ELEMENT properties ( comment?, entry* ) >
+<!ATTLIST properties version CDATA #FIXED "1.0">
+<!ELEMENT comment (#PCDATA) >
+<!ELEMENT entry (#PCDATA) >
+<!ATTLIST entry key CDATA #REQUIRED>
+]>
+<properties version="1.0">
+    <entry key="foo">BARBAR</entry>
+    <entry key="ALA">BAZBAZ</entry>
+</properties>
