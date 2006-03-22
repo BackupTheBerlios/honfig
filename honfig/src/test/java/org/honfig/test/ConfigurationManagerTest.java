@@ -5,7 +5,7 @@ package org.honfig.test;
 
 import junit.framework.TestCase;
 import org.honfig.Configuration;
-import org.honfig.ConfigurationManager;
+import org.honfig.ConfigurationFactory;
 
 import java.util.logging.Logger;
 
@@ -16,9 +16,10 @@ public class ConfigurationManagerTest extends TestCase {
 
     public void testGetConfiguration()  {
         try{
-            final ConfigurationManager pm = new ConfigurationManager();
-            final Configuration conf = pm.getConfiguration( "config2");
+            final Configuration conf = ConfigurationFactory.getConfiguration( "config2");
             log.fine( "conf" + conf);
+            final Configuration conf2 = ConfigurationFactory.getConfiguration();
+            System.out.println( "conf2 = " + conf2 ); 
             assertEquals( "Override prop error", conf.get("foo"), "barbar" );
             assertEquals( "new prop error", conf.get("alaala"), "alaala" );
         }catch(Exception e){

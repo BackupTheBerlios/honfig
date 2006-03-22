@@ -1,17 +1,22 @@
 <!DOCTYPE honfig [
-<!ELEMENT honfig (configuration)*>
-<!ELEMENT provider (#PCDATA)>
-<!ELEMENT description (#PCDATA)>
+<!ELEMENT honfig (defaultConfiguration|configuration)*>
+
+<!ELEMENT defaultConfiguration (#PCDATA)>
+
+<!ATTLIST configuration name CDATA #REQUIRED>
 <!ELEMENT configuration (path|algorithm|provider|description)*>
-<!ATTLIST configuration
-    name CDATA #REQUIRED>
+<!ELEMENT provider (#PCDATA)>
 <!ELEMENT path (#PCDATA)>
 <!ELEMENT algorithm (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
 ]>
 <honfig>
 
-    <!--default configuration-->
-    <configuration name="application" >
+    <defaultConfiguration>config2</defaultConfiguration>
+
+    <!--configuration definition-->
+    <configuration name="application">
 
         <!--path to the configuration file-->
         <path>/</path>
@@ -26,7 +31,7 @@
 
     </configuration>
 
-    <!--default configuration-->
+    <!--configuration definition-->
     <configuration name="config2" >
 
         <!--path to the configuration file-->
