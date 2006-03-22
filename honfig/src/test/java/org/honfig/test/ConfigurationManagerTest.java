@@ -17,11 +17,11 @@ public class ConfigurationManagerTest extends TestCase {
     public void testGetConfiguration()  {
         try{
             final Configuration conf = ConfigurationFactory.getConfiguration( "config2");
-            log.fine( "conf" + conf);
-            final Configuration conf2 = ConfigurationFactory.getConfiguration();
-            System.out.println( "conf2 = " + conf2 ); 
             assertEquals( "Override prop error", conf.get("foo"), "barbar" );
             assertEquals( "new prop error", conf.get("alaala"), "alaala" );
+            final Configuration conf2 = ConfigurationFactory.getConfiguration();
+            assertEquals( "Override prop error", conf2.get("foo"), "barbar" );
+            assertEquals( "new prop error", conf2.get("alaala"), "alaala" );
         }catch(Exception e){
             e.printStackTrace();
         }
