@@ -22,9 +22,9 @@
         <path>/</path>
 
         <!-- can be IP or hostname based -->
-        <algorithm>org.honfig.impl.IPIdentityAlgorithm</algorithm>
+        <algorithm>org.honfig.spi.ia.IPIdentityAlgorithm</algorithm>
 
-        <provider>org.honfig.input.PropertiesFileConfigurationProvider</provider>
+        <provider>org.honfig.spi.provider.PropertiesFileConfigurationProvider</provider>
 
         <!-- configuration description-->
         <description>Application Configuration</description>
@@ -38,12 +38,28 @@
         <path>/</path>
 
         <!-- can be IP or hostname based -->
-        <algorithm>org.honfig.impl.HostNameIdentityAlgorithm</algorithm>
+        <algorithm>org.honfig.spi.ia.HostNameIdentityAlgorithm</algorithm>
 
-        <provider>org.honfig.input.PropertiesFileConfigurationProvider</provider>
+        <provider>org.honfig.spi.provider.PropertiesFileConfigurationProvider</provider>
 
         <!-- configuration description-->
         <description>Configuration named Config2</description>
+
+    </configuration>
+
+    <!--configuration definition-->
+    <configuration name="config3" >
+
+        <!--path to the configuration file-->
+        <path>/</path>
+
+        <!-- can be IP or hostname based -->
+        <algorithm>org.honfig.spi.ia.HostNameIdentityAlgorithm</algorithm>
+
+        <provider>org.honfig.spi.provider.PropertiesXMLFileConfigurationProvider</provider>
+
+        <!-- configuration description-->
+        <description>Configuration named Config3</description>
 
     </configuration>
 
